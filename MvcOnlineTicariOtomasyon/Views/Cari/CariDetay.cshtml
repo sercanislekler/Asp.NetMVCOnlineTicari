@@ -1,0 +1,22 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Urun> 
+@{
+    ViewBag.Title = "CariDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br/>
+<h2>Cari Ürün Detay</h2>
+<br/>
+<table class="table">
+    <tr>
+        <th>Ürün ID</th>
+        <th>Cari ID</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>@item.UrunAdi</td>
+        <td></td>
+    </tr>
+    }
+</table>

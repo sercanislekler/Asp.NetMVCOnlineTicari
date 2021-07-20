@@ -1,0 +1,33 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.SatisHareket
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Satış Sayfası</h2>
+<br />
+<form method="post" class="form-group">
+    @Html.Label("Ürün Adı")
+    @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cari Adı")
+    @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel")
+    @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adet")
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("Toplam")
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>
+

@@ -1,0 +1,64 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <br />
+    <h4>Ürün Listesi</h4>
+    <br />
+    <table class="table table-bordered">
+  
+            <tr>
+                <th>ID</th>
+                <th>Ürün</th>
+                <th>Marka</th>
+                <th>Stok</th>
+                <th>Alış Fiyat</th>
+                <th>Satış Fiyat</th>
+                <th>Kategori</th>
+                <th>Görsel</th>
+                <th>Durum</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UrunID</td>
+                    <td>@item.UrunAdi</td>
+                    <td>@item.Marka</td>
+                    <td>@item.Stok</td>
+                    <td>@item.AlisFiyat TL</td>
+                    <td>@item.SatiFiyat TL</td>
+                    <td>@item.Kategori.KategoriAd</td>
+                    <td>@item.UrunGorsel</td>
+                    @if (item.Durum == false)
+                    {
+                        <td class="bg-danger">Ürün Pasif</td>
+                    }
+                    else
+                    {
+                        <td class="bg-success">Ürün Aktif</td>
+                    }
+
+                    @if (item.Durum == false)
+                    {
+                        <td>
+                            <a href="/Urun/UrunPasif/@item.UrunID" class="btn btn-success">Aktif Yap</a>
+
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a href="/Urun/UrunPasif/@item.UrunID" class="btn btn-danger">Pasif Yap</a>
+
+                        </td>
+                    }
+                    <td><a href="/Urun/UrunGetir/@item.UrunID" class="btn btn-warning">Güncelle</a></td>
+                </tr>
+            }
+    </table>
+    <a href="/Urun/YeniUrun/" class="btn btn-info">Yeni Ürün Ekle</a>
+ 
